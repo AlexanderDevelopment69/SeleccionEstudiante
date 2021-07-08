@@ -24,11 +24,14 @@ class AsignaturaTestCase ( unittest.TestCase ) :
                                    elegible = True )
         self.estudiante4 = Estudiante ( apellidoPaterno = "Garcia" , apellidoMaterno = "Mateo" , nombres = "Miguel Angel" ,
                                    elegible = True )
+        self.estudiante5 = Estudiante(apellidoPaterno="Rojas", apellidoMaterno="Flores", nombres="Diego Arturo",
+                                 elegible=True)
 
-        self.session.add ( self.estudiante1 )
-        self.session.add ( self.estudiante2 )
-        self.session.add ( self.estudiante3 )
-        self.session.add ( self.estudiante4 )
+        self.session.add (self.estudiante1)
+        self.session.add (self.estudiante2)
+        self.session.add (self.estudiante3)
+        self.session.add (self.estudiante4)
+        self.session.add (self.estudiante5)
         self.session.commit ( )
 
         # crear asignatura
@@ -39,8 +42,8 @@ class AsignaturaTestCase ( unittest.TestCase ) :
         self.session.commit ( )
 
         # crear equipo de trabajo
-        self.equipo1 = Equipo ( denominacionEquipo = "Equipo01" )
-        self.equipo2 = Equipo ( denominacionEquipo = "Equipo02" )
+        self.equipo1 = Equipo ( denominacionEquipo = "Equipo1" )
+        self.equipo2 = Equipo ( denominacionEquipo = "Equipo2" )
         self.session.add ( self.equipo1 )
         self.session.add ( self.equipo2 )
         self.session.commit ( )
@@ -106,3 +109,11 @@ class AsignaturaTestCase ( unittest.TestCase ) :
     def test_agregar_asignatura_repetido(self):
         resultado = self.sorteo.agregar_asignatura(nombreAsignatura = "Pruebas de software")
         self.assertNotEqual(resultado, True)
+
+
+    def test_verificar_equipo (self):
+        self.sorteo.agregar_equipo(denominacionEquipo="Equipo1")
+        self.session=Session()
+
+        equipo=self.session.query(Equipo).filter(Equipo.estudiantes=="Equipo1").first()
+        self.assertEqual("Equipo1".equipo.estudiantes)

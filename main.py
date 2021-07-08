@@ -23,11 +23,14 @@ def añadeRegistos():
                              elegible=True)
     estudiante4 = Estudiante(apellidoPaterno="Garcia", apellidoMaterno="Mateo", nombres="Miguel Angel",
                              elegible=True)
+    estudiante5 = Estudiante(apellidoPaterno="Rojas", apellidoMaterno="Flores", nombres="Diego Arturo",
+                             elegible=True)
 
     session.add(estudiante1)
     session.add(estudiante2)
     session.add(estudiante3)
     session.add(estudiante4)
+    session.add(estudiante5)
     session.commit()
 
     # crear asignatura

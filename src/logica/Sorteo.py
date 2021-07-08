@@ -1,4 +1,5 @@
 from src.modelo.Asignatura import Asignatura
+from src.modelo.Equipo import Equipo
 from src.modelo.declarative_base import engine, Base, session
 
 
@@ -16,3 +17,4 @@ class Sorteo():
             return True
         else:
             return False
+
