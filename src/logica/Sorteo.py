@@ -1,3 +1,4 @@
+from sqlalchemy import false
 from sqlalchemy.orm import relationship
 
 from src.modelo.Asignatura import Asignatura
@@ -26,18 +27,7 @@ class Sorteo():
         else:
             return False
 
-        def agregar_estudiante(self, nombreEstudiante):
-            busqueda = session.query(Estudiante).filter(Estudiante.nombreEstudiante == nombreAsignatura).all()
-
-            if len(busqueda) == 0:
-                estudiante = Estudiante(nombreEstudiante=nombreEstudiante)
-                session.add(estudiante)
-                session.commit()
-                return True
-            else:
-                return False
-
-        def agregar_equipo(self, nombreEquipo):
+    def agregar_equipo(self, nombreEquipo):
             busqueda = session.query(Equipo).filter(Equipo.nombreEquipo == nombreEquipo).all()
 
             if len(busqueda) == 0:
@@ -48,7 +38,7 @@ class Sorteo():
             else:
                 return False
 
-        def agregar_actividad(self, nombreActividad):
+    def agregar_actividad(self, nombreActividad):
             busqueda = session.query(Actividad).filter(Actividad.nombreActividad == nombreActividad).all()
 
             if len(busqueda) == 0:
@@ -58,3 +48,22 @@ class Sorteo():
                 return True
             else:
                 return False
+
+    def agregar_estudiante(self, apellidoPaterno, apellidoMaterno, nombres, elegible):
+                if (apellidoPaterno == ""):
+                    return False
+                if (nombres == ""):
+                    return False
+                busqueda = session.query(Estudiante).filter(Estudiante.apellidoPaterno == apellidoPaterno,
+                                                            Estudiante.apellidoMaterno == apellidoMaterno,
+                                                            Estudiante.nombres == nombres,
+                                                            Estudiante.elegible == elegible).all()
+                if len(busqueda) == 0:
+                    estudiante = Estudiante(apellidoPaterno=apellidoPaterno, apellidoMaterno=apellidoMaterno,
+                                            nombres=nombres, elegible=elegible)
+                    session.add(estudiante)
+                    session.comit()
+                    return True
+
+                else:
+                    return false

@@ -110,4 +110,7 @@ class AsignaturaTestCase ( unittest.TestCase ) :
                                    elegible = True )
 
         self.assertEqual(resultado, True)
-# ss
+
+    def test_agregar_estudiante_vacio(self):
+        resultado=self.sorteo.agregar_estudiante(apellidoPaterno="",apellidoMaterno="",nombres="",elegible=True)
+        self.assertFalse(resultado)
