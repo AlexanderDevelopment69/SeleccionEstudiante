@@ -1,3 +1,5 @@
+from sqlalchemy.orm import relationship
+
 from src.modelo.Asignatura import Asignatura
 from src.modelo.declarative_base import engine, Base, session
 
@@ -9,6 +11,7 @@ class Sorteo():
 
     def agregar_asignatura(self, nombreAsignatura):
         busqueda = session.query(Asignatura).filter(Asignatura.nombreAsignatura == nombreAsignatura).all()
+
         if len(busqueda) == 0:
             asignatura = Asignatura(nombreAsignatura=nombreAsignatura)
             session.add(asignatura)
@@ -16,3 +19,4 @@ class Sorteo():
             return True
         else:
             return False
+
