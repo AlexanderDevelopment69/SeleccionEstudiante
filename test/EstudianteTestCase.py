@@ -100,9 +100,13 @@ class AsignaturaTestCase ( unittest.TestCase ) :
         self.session.close ( )
 
     def test_agregar_estudiante ( self ) :
-        resultado = self.sorteo.agregar_estudiante ( apellidoPaterno= "Ramos" )
+        resultado =self.estudiante1 = Estudiante(apellidoPaterno="Ramos", apellidoMaterno="Ortega", nombres="Juan Carlos",
+                                      elegible=True)
+
         self.assertEqual ( resultado , True )
 
     def test_agregar_estudiante_repetido(self):
-        resultado = self.sorteo.agregar_estudiante(napellidoPaterno = "Solis")
-        self.assertNotEqual(resultado, True)
+        resultado = self.estudiante2 = Estudiante ( apellidoPaterno = "Solis" , apellidoMaterno = "Matos" , nombres = "Pedro" ,
+                                   elegible = True )
+
+        self.assertEqual(resultado, True)
