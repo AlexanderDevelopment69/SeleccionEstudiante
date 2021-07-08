@@ -1,11 +1,11 @@
 import unittest
 from datetime import datetime
-from src.seleccionestudiante.modelo.Asignatura import Asignatura
-from src.seleccionestudiante.modelo.Estudiante import Estudiante
-from src.seleccionestudiante.modelo.Equipo import Equipo
-from src.seleccionestudiante.modelo.Actividad import Actividad
-from src.seleccionestudiante.logica.Sorteo import Sorteo
-from src.seleccionestudiante.modelo.declarative_base import Session
+from src.modelo.Asignatura import Asignatura
+from src.modelo.Estudiante import Estudiante
+from src.modelo.Equipo import Equipo
+from src.modelo.Actividad import Actividad
+from src.logica.Sorteo import Sorteo
+from src.modelo.declarative_base import Session
 
 class AsignaturaTestCase ( unittest.TestCase ) :
     def setUp ( self ) :
