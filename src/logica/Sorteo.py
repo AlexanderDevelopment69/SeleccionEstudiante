@@ -16,3 +16,14 @@ class Sorteo():
             return True
         else:
             return False
+
+    def agregar_estudiante(self, apellidoPaterno):
+        busqueda = session.query(Estudiante).filter(Estudiante.apellidoPaterno == apellidoPaterno).all()
+        if len(busqueda) == 0:
+            asignaturas = Estudiante(apellidoPaterno=apellidoPaterno)
+
+            session.add(Estudiante)
+            session.commit()
+            return True
+        else:
+            return False
