@@ -48,9 +48,12 @@ def añadeRegistos():
     actividad1 = Actividad(denominacionActividad="Prueba unitaria", fecha=datetime(2021, 9, 28, 00, 00, 00, 00000))
     actividad2 = Actividad(denominacionActividad="TDD", fecha=datetime(2021, 9, 25, 00, 00, 00, 00000))
     actividad3 = Actividad(denominacionActividad="BDD", fecha=datetime(2021, 9, 25, 00, 00, 00, 00000))
+    actividad4 = Actividad(denominacionActividad="GITHU", fecha=datetime(2021, 9, 25, 00, 00, 00, 00000))
     session.add(actividad1)
     session.add(actividad2)
     session.add(actividad3)
+    session.add(actividad4)
+
     session.commit()
 
     # Relacionar Asignatura con estudiantes
@@ -65,7 +68,7 @@ def añadeRegistos():
 
     # Relacionar Equipo de trabajo con actividad
     equipo1.actividades = [actividad1, actividad2]
-    equipo2.actividades = [actividad3]
+    equipo2.actividades = [actividad3,actividad4]
     session.commit()
 
     session.close()
