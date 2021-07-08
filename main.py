@@ -118,4 +118,4 @@ if __name__ == '__main__':
             print("Registros eliminados")
         else:
             print("Opción incorrecta")
-        print("\n\n\n")
+        print("\n")
