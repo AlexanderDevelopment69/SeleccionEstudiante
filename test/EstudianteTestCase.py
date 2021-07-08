@@ -110,3 +110,4 @@ class AsignaturaTestCase ( unittest.TestCase ) :
                                    elegible = True )
 
         self.assertEqual(resultado, True)
+# ss
